@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link href="js/bootstraps/css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/bootstraps/js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstraps/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap-dialog.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<style>
+			/*div[class*="col"] {
+				border: 1px solid blue;*/
+			}
+			li a {
+				color: white;
+			}
+			.font{
+				font-size: 18px;
+				font-style: italic;
+ 
+				}
+			.myImge{
+				width: 60px;
+				height: 60px;
+				}
+			#text{ 
+					height:20px; 
+					vertical-align:middle; 
+					line-height:20px;
+				} 
+			
+		</style>
+		<script>
+			function delProduct(id){
+				alert(id);
+				var isDel = confirm("你确定要删除吗?");
+				if(isDel){					
+				}
+			}
+			//修改
+			function editProduct(id){
+				alert(1111111);
+				location.href="";
+			}
+			//发货给下级代理
+			function sendProduct(id){
+				alert(id);
+								
+			}
+		//新增
+		function addBookMark(){
+			dialog.generic("測試", 'testForm.html', function() {
+				var bv = comm.validator('sendProductFrom');			
+				if(bv.isValid()){
+					ajaxMeth.genStringAjax('addBookMark.data', $('#addBmForm').serialize(), 'POST', function(str){
+						alert(str);
+						dataInfo();
+						if(str == '添加成功'){
+							dialog.genClose();
+						}
+					});
+				}else{
+					return false;
+				}
+				
+				return true;
+			});
+		}
+		
+		</script>
+		
+	</head>
+	<!--fead-->
+
+	<body>
+		<!--导航条-->
+			<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+					<a class="navbar-brand class="active" href="#">微商管理平台</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">首页 <span class="sr-only">(current)</span></a>
+						</li>
+						<li><a href="#">我的货架</a></li>
+						<li><a href="#">上级代理货架</a></li>
+						<li><a href="#">我的订单</a></li>
+						<li><a href="#">我的发货单</a></li>
+						<li><a href="#">进货统计</a></li>
+						<li><a href="#">出货统计</a></li>
+					</ul>						
+						<ul class="nav navbar-nav navbar-right">
+				     	<li><a class="st" href="javascript:void(0)">欢迎你，张三</a> </li>
+				     	<li><a class="st" href="javascript:void(0);" onclick="logout()">注销</a></li>
+				    </ul>	
+				    <ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#"><span class="glyphicon glyphicon glyphicon-envelope"></span></a>								
+						</li>
+					</ul>
+				</div>				
+			</div>
+		</nav>
+		<!--背景图-->
+		<div class="container-fluid">
+			<br />
+			<div class="row">
+				<div class="col-md-4 col-xs-2 col-sm-4 col-lg-4 hidden-xs ">
+				</div>
+				<!--搜索框-->
+				<div class="col-md-4 col-xs-8 col-sm-4 col-lg-4">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search for...">
+						<span class="input-group-btn">
+        		<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-2 col-sm-4 col-lg-4">
+				</div>
+			</div>
+			<br /> <br />
+			<!--菜单-->
+			<div class="row">
+				<div class="col-md-1 col-sm-1">
+					<div class="btn-group-vertical">
+						<a href="#" class="btn btn-success bth-lg"><span style="font-size: 20px;">首页</span></a><br />
+						<a href="#" class="btn btn-warning bth-lg"><span style="font-size: 20px;">我的货架</span></a><br />
+						<a href="#" class="btn btn-warning bth-lg"><span style="font-size: 20px;">我的发货单</span></a><br />
+						<a href="#" class="btn btn-danger bth-lg"><span style="font-size: 20px;">我的订货单</span></a><br />
+						<a href="#" class="btn btn-danger bth-lg"><span style="font-size: 20px;">上级代理货架</span></a><br />
+						<a href="#" class="btn btn-info bth-lg"><span style="font-size: 20px;">出货统计</span></a><br />
+						<a href="#" class="btn btn-info bth-lg"><span style="font-size: 20px;">进货统计</span></a><br />
+						<a href="#" class="btn btn-primary bth-lg"><span style="font-size: 20px;">收入统计</span></a><br />	
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					      更多功能...
+					      <span class="caret"></span>
+					    </button>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">敬请期待</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>							
+				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-push-1 col-md-push-1 col-sm-push-1 col-xs-push-1 ">
+					<div class="container-fluid">
+						<div class="row">
+							<a href="javascript:;" onclick="addBookMark()">
+									<img src="img/car.jpg" width="60px" height="60px"></a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	<body>	
+</html>

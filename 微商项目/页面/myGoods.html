@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link href="js/bootstraps/css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/bootstraps/js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstraps/js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-dialog.js"></script>
+		<script src="js/common.js"></script>
+		<style>
+		/*div[class*="col"] {
+				border: 1px solid blue;*/
+		}
+		li a {
+			color: #222222;
+		}
+		.font {
+			font-size: 18px;
+			font-style: italic;
+		}
+		.myImge {
+			width: 60px;
+			height: 60px;
+		}
+		#text {
+			height: 20px;
+			vertical-align: middle;
+			line-height: 20px;
+		}
+		</style>
+		<script>
+			function delProduct(id) {
+				var isDel = confirm("你确定要下架吗?");
+				if(isDel) {}
+			}
+			//发货给下级代理
+			function sendProduct(id) {
+				location.href = "sendProduct_info.html";
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--导航条-->
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+						<a class="navbar-brand class=" active " href="# ">微商管理平台</a>
+				</div>
+				<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1 ">
+					<ul class="nav navbar-nav ">
+						<li class="active ">
+							<a href="# ">首页 <span class="sr-only ">(current)</span></a>
+						</li>
+						<li><a href="# ">我的货架</a></li>
+						<li><a href="#">上级代理货架</a></li>
+						<li><a href="# ">我的订单</a></li>
+						<li><a href="# ">我的发货单</a></li>
+						<li><a href="# ">进货统计</a></li>
+						<li><a href="# ">出货统计</a></li>
+					</ul>						
+						<ul class="nav navbar-nav navbar-right ">
+				     	<li><a class="st " href="javascript:void(0) ">欢迎你，张三</a> </li>
+				     	<li><a class="st " href="javascript:void(0); " onclick="logout() ">注销</a></li>
+				    </ul>	
+				    <ul class="nav navbar-nav navbar-right ">
+						<li>
+							<a href="# "><span class="glyphicon glyphicon glyphicon-envelope "></span></a>								
+						</li>
+					</ul>
+				</div>				
+			</div>
+		</nav>
+		<!--导航条-->
+		<!--背景图-->
+		<div class="container-fluid ">
+			<!--菜单-->
+			<div class="row ">
+				<div class="col-md-2 col-sm-2 col-lg-2 hidden-xs "><br /><br /><br />
+					<div class="btn-group-vertical ">
+					<a href="index.html" class="btn btn-success bth-lg"><span style="font-size: 20px;">首页</span></a><br />
+						<a href="myGoods.html" class="btn btn-warning bth-lg"><span style="font-size: 20px;">我的货架</span></a><br />
+						<a href="superiorGoods.html" class="btn btn-warning bth-lg"><span style="font-size: 20px;">上级代理货架</span></a><br />
+						<a href="deliverProductCar.html" class="btn btn-danger bth-lg"><span style="font-size: 20px;">我的发货单</span></a><br />
+						<a href="myOrderCar.html" class="btn btn-danger bth-lg"><span style="font-size: 20px;">我的订货单</span></a><br />
+						<a href="deliverOrderHistory.html" class="btn btn-danger bth-lg"><span style="font-size: 20px;">发货单记录</span></a><br />
+						<a href="myOrderHistory.html" class="btn btn-danger bth-lg"><span style="font-size: 20px;">出货单记录</span></a><br />
+						<a href="#" class="btn btn-info bth-lg"><span style="font-size: 20px;">出货统计</span></a><br />
+						<a href="#" class="btn btn-info bth-lg"><span style="font-size: 20px;">进货统计</span></a><br />
+						<div class="btn-group " role="group ">
+							<button type="button " class="btn btn-default dropdown-toggle " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
+					      更多功能...
+					      <span class="caret "></span>
+					    </button>
+							<ul class="dropdown-menu ">
+								<li>
+									<a href="# ">敬请期待</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>	
+				<!--菜单-->
+				<div class="col-lg-10 col-md-10 col-sm-10 ">	
+				<div class="row ">
+					<div class="col-lg-4 col-md-4 col-sm-4 "></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-8 ">
+						<!--搜索框-->
+						 <div class="input-group ">
+							<input type="text " class="form-control " placeholder="输入关键字 ">
+							<span class="input-group-btn ">
+        					<button class="btn btn-default " type="button "><span class="glyphicon glyphicon-search "></span></button>						</span>
+						</div>
+					</div>
+					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-lg-push-4 col-md-push-4 col-sm-push-4 ">
+						<a href="javascript:; " onclick="addProduct() " class="btn btn-success btn-sm ">
+							<span style="font-size: 15px; ">添加商品</span></a>
+					</div>
+				</div><br />
+				<div class="table-responsive ">
+					<table class="table table-bordered table-hover table-striped table-condensed font ">
+						<tr align="center ">
+							<th>商品分类</th>
+							<th>图片</th>
+							<th>商品名</th>
+							<th>规格</th>
+							<th>单价</th>
+							<th>现存数量</th>
+							<th>加入发货车</th>
+							<th>功效</th>
+							<th>修改</th>
+							<th>是否下架</th>
+							<th>备注</th>
+						</tr>
+						<tr align="center">
+							<td id="text">面膜类</td>
+							<td id="text"><img src="img/222.png " class="img-responsive myImge "></td>
+							<td id="text">小草面膜</td>
+							<td id="text">10贴/盒</td>
+							<td id="text">50元</td>
+							<td id="text">20盒</td>
+							<td id="text">
+								<a href="javascript:; " onclick="addSendCar() ">
+									<img src="img/car.jpg " width="60px " height="60px "></a>
+							</td>
+							<td id="text">清洁 疏通毛孔 祛痘祛黑头祛粉刺</td>
+							<td id="text">
+								<a href="javascript:; " onclick="updateProduct( 'id') ">
+									<img src="img/edit.jpg " width="30px " height="30px "></a>
+							</td>
+							<td id="text">
+								<a href="javascript:; " onclick="delProduct( 'id') ">
+									<img src="img/del.png " width="30px " height="30px "></a>
+							</td>
+							<td id="text">.....</td>
+						</tr>
+						<tr align="center">
+							<td id="text">清洁类</td>
+							<td id="text"><img src="img/111.png " class="img-responsive myImge "></td>
+							<td id="text">葡萄籽卸妆油</td>
+							<td id="text">200ml</td>
+							<td id="text">85</td>
+							<td id="text">30瓶</td>
+							<td id="text">
+								<a href="javascript:; " onclick="addSendCar() ">
+									<img src="img/car.jpg " width="60px " height="60px "></a>
+							</td>
+							<td id="text">卸妆 美白 清洁 抗衰老</td>
+							<td id="text">
+								<a href="javascript:; " onclick="updateProduct( 'id') ">
+									<img src="img/edit.jpg " width="30px " height="30px "></a>
+							</td>
+							<td id="text ">
+								<a href="javascript:; " onclick="delProduct( 'id') ">
+									<img src="img/del.png " width="30px " height="30px "></a>
+							</td>
+							<td id="text">.....</td>
+						</tr>
+					<tr align="center">
+							<td id="text">清洁类</td>
+							<td id="text"><img src="img/111.png " class="img-responsive myImge "></td>
+							<td id="text">葡萄籽卸妆油</td>
+							<td id="text">200ml</td>
+							<td id="text">85</td>
+							<td id="text">30瓶</td>
+							<td id="text">
+								<a href="javascript:; " onclick="addSendCar() ">
+									<img src="img/car.jpg " width="60px " height="60px "></a>
+							</td>
+							<td id="text">卸妆 美白 清洁 抗衰老</td>
+							<td id="text">
+								<a href="javascript:; " onclick="updateProduct( 'id') ">
+									<img src="img/edit.jpg " width="30px " height="30px "></a>
+							</td>
+							<td id="text">
+								<a href="javascript:; " onclick="delProduct( 'id') ">
+									<img src="img/del.png " width="30px " height="30px "></a>
+							</td>
+							<td id="text">.....</td>					
+						</tr>
+						<tr align="center">
+							<td id="text">清洁类</td>
+							<td id="text"><img src="img/111.png " class="img-responsive myImge "></td>
+							<td id="text">葡萄籽卸妆油</td>
+							<td id="text">200ml</td>
+							<td id="text">85</td>
+							<td id="text">30瓶</td>
+							<td id="text">
+								<a href="javascript:; " onclick="addSendCar() ">
+									<img src="img/car.jpg " width="60px " height="60px "></a>
+							</td>
+							<td id="text">卸妆 美白 清洁 抗衰老</td>
+							<td id="text">
+								<a href="javascript:; " onclick="updateProduct( 'id') ">
+									<img src="img/edit.jpg " width="30px " height="30px "></a>
+							</td>
+							<td id="text">
+								<a href="javascript:; " onclick="delProduct( 'id') ">
+									<img src="img/del.png " width="30px " height="30px "></a>
+							</td>
+							<td id="text">.....</td>
+						</tr>
+						<tr align="center">
+							<td id="text">清洁类</td>
+							<td id="text"><img src="img/111.png " class="img-responsive myImge "></td>
+							<td id="text">葡萄籽卸妆油</td>
+							<td id="text">200ml</td>
+							<td id="text">85</td>
+							<td id="text">30瓶</td>
+							<td id="text">
+								<a href="javascript:; " onclick="addSendCar() ">
+									<img src="img/car.jpg " width="60px " height="60px "></a>
+							</td>
+							<td id="text">卸妆 美白 清洁 抗衰老</td>
+							<td id="text">
+								<a href="javascript:; " onclick="updateProduct( 'id') ">
+									<img src="img/edit.jpg " width="30px " height="30px "></a>
+							</td>
+							<td id="text">
+								<a href="javascript:; " onclick="delProduct( 'id') ">
+									<img src="img/del.png " width="30px " height="30px "></a>
+							</td>
+							<td id="text">.....</td>
+						</tr>
+						<tr align="center">
+							<td id="text">清洁类</td>
+							<td id="text"><img src="img/111.png " class="img-responsive myImge "></td>
+							<td id="text">葡萄籽卸妆油</td>
+							<td id="text">200ml</td>
+							<td id="text">85</td>
+							<td id="text">30瓶</td>
+							<td id="text">
+								<a href="javascript:; " onclick="addSendCar() ">
+									<img src="img/car.jpg " width="60px " height="60px "></a>
+							</td>
+							<td id="text">卸妆 美白 清洁 抗衰老</td>
+							<td id="text">
+								<a href="javascript:; " onclick="updateProduct( 'id') ">
+									<img src="img/edit.jpg " width="30px " height="30px "></a>
+							</td>
+							<td id="text ">
+								<a href="javascript:; " onclick="delProduct( 'id') ">
+									<img src="img/del.png " width="30px " height="30px "></a>
+							</td>
+							<td id="text">.....</td>
+						</tr>
+						<tr align="center">
+							<td id="text">清洁类</td>
+							<td id="text"><img src="img/111.png " class="img-responsive myImge "></td>
+							<td id="text">葡萄籽卸妆油</td>
+							<td id="text">200ml</td>
+							<td id="text">85</td>
+							<td id="text">30瓶</td>
+							<td id="text">
+								<a href="javascript:; " onclick="addSendCar() ">
+									<img src="img/car.jpg " width="60px " height="60px "></a>
+							</td>
+							<td id="text">卸妆 美白 清洁 抗衰老</td>
+							<td id="text">
+								<a href="javascript:; " onclick="updateProduct( 'id') ">
+									<img src="img/edit.jpg " width="30px " height="30px "></a>
+							</td>
+							<td id="text">
+								<a href="javascript:; " onclick="delProduct( 'id') ">
+									<img src="img/del.png " width="30px " height="30px "></a>
+							</td>
+							<td id="text">.....</td>
+						</tr>
+						<tr align="center">
+							<td id="text">清洁类</td>
+							<td id="text"><img src="img/111.png " class="img-responsive myImge "></td>
+							<td id="text">葡萄籽卸妆油</td>
+							<td id="text">200ml</td>
+							<td id="text">85</td>
+							<td id="text">30瓶</td>
+							<td id="text">
+								<a href="javascript:; " onclick="addSendCar() ">
+									<img src="img/car.jpg " width="60px " height="60px "></a>
+							</td>
+							<td id="text">卸妆 美白 清洁 抗衰老</td>
+							<td id="text">
+								<a href="javascript:; " onclick="updateProduct( 'id') ">
+									<img src="img/edit.jpg " width="30px " height="30px "></a>
+							</td>
+							<td id="text">
+								<a href="javascript:; " onclick="delProduct( 'id') ">
+									<img src="img/del.png " width="30px " height="30px "></a>
+							</td>
+							<td id="text">.....</td>
+						</tr>
+						
+						
+					</table>
+					</div>
+
+				<!--分页-->
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 "></div>
+					<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 " style="margin: -18px 0px -24px 0px; text-align: " center; ">
+							<nav aria-label="Page navigation ">
+								<ul class="pagination pagination-lg ">
+									<li class="disabled ">
+										<a href="# " aria-label="Previous ">
+											<span aria-hidden="true ">&laquo;</span></a>
+									</li>
+									<li class="active ">
+										<a href="# ">1 <span class="sr-only ">(current)
+						   </span></a>
+									</li>
+									<li>
+										<a href="# ">2</a>
+									</li>
+									<li>
+										<a href="# ">3</a>
+									</li>
+									<li>
+										<a href="# ">4</a>
+									</li>
+									<li>
+										<a href="# ">5</a>
+									</li>
+									<li>
+										<a href="# " aria-label="Next ">
+											<span aria-hidden="true ">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+					</div>
+				</div>
+				<!--分页-->
+			</div>
+		</div>
+		<!--foot-->
+		<div class="row " style="background: #F5F5F5; ">
+			<div class="col-xs-3 col-sm-3 col-md-3 "></div>
+			<div class="col-xs-6 col-sm-6 col-md-6 text-center ">
+				<div style="text-align:center;margin: 20px;padding: 0px; ">
+					<ul class="list-inline ">
+						<li>
+							<a href="javascript:void(0) "><span>关于我们</span></a>
+						</li>
+						<li>
+							<a href="javascript:void(0) "><span>联系我们</span></a>
+						</li>
+						<li>
+							<a href="javascript:void(0) "><span>招贤纳士</span></a>
+						</li>
+						<li>
+							<a href="javascript:void(0) "><span>广告声明</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-3 "></div>
+		</div>
+		<!--foot-->
+		</div>
+		<script>
+			//加入发货车
+			function addSendCar() {
+				dialog.generic("添加商品到发货车", 'deliverProNumberdata.html', function() {
+					location.href = "deliverProductCar.html";
+					/*var bv = comm.validator('sendProductFrom');
+					if(bv.isValid()){
+						ajaxMeth.genStringAjax('addBookMark.data', $('#addBmForm').serialize(), 'POST', function(str){
+							alert(str);
+							dataInfo();
+							if(str == '添加成功'){
+								dialog.genClose();
+							}
+						});
+					}else{
+						return false;
+					}*/
+					return true;
+				});
+			}
+			//添加商品
+			function addProduct() {
+				dialog.generic("添加商品", 'addProductFormdata.html', function() {
+					var bv = comm.validator('sendProductFrom');
+					if(bv.isValid()) {
+						ajaxMeth.genStringAjax('addBookMark.data', $('#addBmForm').serialize(), 'POST', function(str) {
+							alert(str);
+							dataInfo();
+							if(str == '添加成功') {
+								dialog.genClose();
+							}
+						});
+					} else {
+						return false;
+					}
+
+					return true;
+				});
+			}
+			//修改商品信息
+			function updateProduct(id) {
+				dialog.generic("修改商品信息", 'updateProFormdata.html', function() {
+					var bv = comm.validator('updateProductFrom');
+					if(bv.isValid()) {
+						ajaxMeth.genStringAjax('addBookMark.data', $('#addBmForm').serialize(), 'POST', function(str) {
+							alert(str);
+							dataInfo();
+							if(str == '添加成功') {
+								dialog.genClose();
+							}
+						});
+					} else {
+						return false;
+					}
+
+					return true;
+				});
+			}
+		</script>
+		<body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link href="js/bootstraps/css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/bootstraps/js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstraps/js/bootstrap.min.js"></script>
+		<style>
+			/*	div[class*="col"] {
+				border: 1px solid blue;
+			}		*/
+			li a {
+				color:#222222;
+			}
+		</style>
+		<script>
+			function userLogin(){
+				//alert();
+				location.href="index.html";
+			}			
+		</script>
+		
+	</head>
+
+	<body>
+		<div>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+					<a class="navbar-brand class="active" href="#">微商管理平台</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">登录<span class="sr-only">(current)</span></a>
+						</li>						
+					</ul>						
+						<ul class="nav navbar-nav navbar-right">
+				     	<li><a class="st" href="javascript:void(0)">欢迎你，请登录</a> </li>
+				    </ul>	
+				    <ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#"><span class="glyphicon glyphicon glyphicon-envelope"></span></a>								
+						</li>
+					</ul>
+				</div>				
+			</div>
+		</nav>
+		</div>
+		<div class="container-fluid">
+			<!--context-->
+			<div style="background-image: url(img/background.png);">
+				<section style="padding:120px 0px 120px 0px;">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-push-2 col-md-push-2 col-sm-push-2">
+							<div class="thumbnail alert alert-info">
+								<img src="img/admin.png" alt="无法加载图片" class="img-responsive">
+								<div class="caption">
+									<h3 style="text-align: center;" class="bg-info">一级代理</h3>
+									<p>用你的笑容去改变这个世界，别让这个世界改变了你的笑容</p>
+									<div class="text-right">
+										<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal" data-whatever="一级代理">一级代理入口</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-push-2 col-md-push-2 col-sm-push-2">
+							<div class="thumbnail alert alert-danger">
+								<img src="img/admin.png" alt="无法加载图片" class="img-responsive">
+								<div class="caption">
+									<h3 style="text-align: center;">二级代理</h3>
+									<p>精彩的人生总有精彩的理由，笑到最后的才会笑得最甜</p>
+									<div class="text-right">
+										<button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#exampleModal" data-whatever="二级代理">二级代理入口</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-push-2 col-md-push-2 col-sm-push-2">
+							<div class="thumbnail alert alert-success">
+								<img src="img/admin.png" alt="无法加载图片" class="img-responsive">
+								<div class="caption">
+									<h3 style="text-align: center;">三级代理</h3>
+									<p>如果生活踹了你好多脚，别忘了给它两个耳光，反抗总比流泪强</p>
+									<div class="text-right">
+										<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal" data-whatever="三级代理">三级代理入口</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--弹窗-->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="exampleModalLabel">提示信息</h4>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="input-group input-group-lg form-group">
+											<span class="input-group-addon"><span class="glyphicon glyphicon glyphicon-user"></span></span>
+											<input type="text" placeholder="Username" class="form-control" id="username">
+										</div>
+										<div class="input-group input-group-lg">
+											
+											<span class="input-group-addon"><span class="glyphicon glyphicon  glyphicon-lock"></span></span>
+											<input type="password" placeholder="Password" class="form-control" id="password">
+										</div>
+								
+								</div>
+								<div class="modal-footer">							
+									<a href="#">忘记密码</a>
+									<button type="button" onclick="userLogin()" class="btn btn-success">LOGIN 登录</button>
+								</div>
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</section>
+			</div>
+			<!--foot-->
+			<div class="row " style="background: #F5F5F5; ">
+				<div class="col-xs-3 col-sm-3 col-md-3 "></div>
+				<div class="col-xs-6 col-sm-6 col-md-6 text-center ">
+					<div style="text-align:center;margin: 20px;padding: 0px; ">
+						<ul class="list-inline ">
+							<li>
+								<a href="javascript:void(0) "><span>关于我们</span></a>
+							</li>
+							<li>
+								<a href="javascript:void(0) "><span>联系我们</span></a>
+							</li>
+							<li>
+								<a href="javascript:void(0) "><span>招贤纳士</span></a>
+							</li>	
+							<li>
+								<a href="javascript:void(0) "><span>广告声明</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 "></div>
+			</div>
+			<!--foot-->
+		</div>
+		<script>
+			$('#exampleModal').on('show.bs.modal', function(event) {
+				var button = $(event.relatedTarget)
+				var recipient = button.data('whatever')
+				var modal = $(this)
+				modal.find('.modal-title').text('用户登录窗口 ' + recipient)
+			});
+		</script>
+	</body>
+</html>

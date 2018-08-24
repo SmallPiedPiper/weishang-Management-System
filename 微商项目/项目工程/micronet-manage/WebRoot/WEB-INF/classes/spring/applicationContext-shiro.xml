@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 用户授权信息Cache  -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" /> 
+    
+    <!-- 項目自定义的Realm  --> 
+    <bean id="myShiroRealm" class="com.micronet.shiro.MyShiroRealm">  
+        <property name="cacheManager" ref="cacheManager" />  
+    </bean>
+	
+	  
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
+        <property name="realm" ref="myShiroRealm" />  
+        <property name="cacheManager" ref="cacheManager" />  
+    </bean> 
+
+      
+    
+</beans>
